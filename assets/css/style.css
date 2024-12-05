@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+nav {
+  grid-area: nav;
+  background-color: lightgrey;
+}
+main {
+  grid-area: main;
+  background-color: azure;
+}
+footer {
+  grid-area: footer;
+  background-color: bisque;
+}
+
+/* Tamaño telefono */
+@media (max-width: 576px) {
+  .grid-boxes {
+    display: grid;
+    grid-template-areas:
+      "nav"
+      "main"
+      "footer";
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  /* NAVBAR */
+  .contenedor-de-navbar {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+  }
+
+  .logo-kinu {
+    height: 60px;
+  }
+
+  .secciones-de-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .secciones-individuales-del-menu {
+    color: black;
+    padding: 5px 10px;
+  }
+  .secciones-individuales-del-menu:hover {
+    background-color: darkgrey;
+    border-radius: 12px;
+    padding: 2.5px;
+  }
+  /* MAIN */
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .sesion {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+
+  .imagen-sesion {
+    height: 70vw;
+    width: 70vw;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .boton {
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+
+  /* Animación de entrada */
+  @keyframes slideUpFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Animación a las cards */
+  .sesion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    animation: slideUpFadeIn 0.8s ease forwards;
+    opacity: 0; /* Inicia invisible hasta que la animación comienza */
+  }
+
+  /* FOOTER */
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+  .iconos-del-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7px;
+    gap: 30px;
+  }
+  i {
+    font-size: 1.5em;
+    color: darkred;
+  }
+  .frase-del-footer {
+    font-size: 0.9em;
+  }
+}
+
+/* Pantallas grandes */
+@media (min-width: 576px) {
+  .grid-boxes {
+    display: grid;
+    grid-template-areas:
+      "nav main main"
+      "nav main main"
+      "nav footer footer";
+    min-height: 100vh;
+    grid-template-columns: 10em 1fr 1fr;
+    grid-template-rows: 4em 1fr 4em;
+  }
+
+  /* Navbar */
+  .contenedor-de-navbar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .secciones-de-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    padding-left: 0.8em;
+  }
+  .secciones-individuales-del-menu {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 600;
+    font-size: 0.9em;
+  }
+  .secciones-individuales-del-menu:hover {
+    background-color: darkgrey;
+    border-radius: 12px;
+    padding: 2.5px;
+  }
+
+  /* Main - Menu */
+  main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+  }
+  .sesion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+    border: solid lightgrey;
+    border-radius: 10px;
+  }
+  .imagen-sesion {
+    height: 35vw;
+    width: 35vw;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .boton {
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Animacion */
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .sesion {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    animation: slideUp 0.8s ease-in-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  .sesion:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Footer */
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+  .iconos-del-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7px;
+    gap: 30px;
+  }
+  i {
+    font-size: 1.5em;
+    color: darkred;
+  }
+  .frase-del-footer {
+    font-size: 0.9em;
+  }
+}
